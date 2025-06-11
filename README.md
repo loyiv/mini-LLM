@@ -42,24 +42,18 @@ pip install -r requirements.txt
 
 ### 3. 启动预训练
 ```bash
-python src/pre-training.py \
+python pre_train.py \
   --config configs/pretrain.yaml
 ```
 
 ### 4. 进行监督微调
 ```bash
-python src/full-SFT-train.py \
+python train_full_sft.py \
   --stage sft \
   --config configs/sft.yaml \
   --ckpt checkpoints/pretrain.pt
 ```
 
-### 5. 推理示例
-```python
-from src.model import MiniLLM
-model = MiniLLM.load_from_checkpoint("checkpoints/sft.pt").eval().cuda()
-print(model.chat("讲讲 LDA 与 Transformer 的差异？"))
-```
 
 ---
 
