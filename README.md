@@ -34,8 +34,6 @@
 
 ### 1. 创建环境
 ```bash
-conda create -n mini-llm python=3.10
-conda activate mini-llm
 pip install -r requirements.txt
 ```
 
@@ -44,14 +42,13 @@ pip install -r requirements.txt
 
 ### 3. 启动预训练
 ```bash
-python src/train.py \
-  --stage pretrain \
+python src/pre-training.py \
   --config configs/pretrain.yaml
 ```
 
 ### 4. 进行监督微调
 ```bash
-python src/train.py \
+python src/full-SFT-train.py \
   --stage sft \
   --config configs/sft.yaml \
   --ckpt checkpoints/pretrain.pt
